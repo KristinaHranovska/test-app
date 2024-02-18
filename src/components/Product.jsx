@@ -1,13 +1,11 @@
-// src/components/Product.jsx
+import { HiUser } from "react-icons/hi";
 
-export const Product = ({ name, imgUrl, price }) => {
+export const UserMenu = ({ name }) => {
   return (
     <div>
-      <h2>{name}</h2>
-      <img src={imgUrl} alt="Tacos With Lime" width="640" />
-      <p>Price: {price} credits</p>
+      <p>
+        <HiUser /> {name}
+      </p>
     </div>
   );
 };
-
-export default Product;
