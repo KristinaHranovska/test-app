@@ -1,9 +1,18 @@
-import { UserMenu } from "./Product";
+import ClickCounter from "./Product";
+import { useState } from "react";
 
-export default function App() {
+const App = () => {
+  const [clicks, setClicks] = useState(0);
+
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  };
   return (
     <>
-      <UserMenu />
+      <ClickCounter value={clicks} onUpdate={handleClick} />
+      <ClickCounter value={clicks} onUpdate={handleClick} />
     </>
   );
-}
+};
+
+export default App;

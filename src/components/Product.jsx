@@ -1,11 +1,5 @@
-import { HiUser } from "react-icons/hi";
-
-export const UserMenu = ({ name }) => {
-  return (
-    <div>
-      <p>
-        <HiUser /> {name}
-      </p>
-    </div>
-  );
+const ClickCounter = ({ value, onUpdate }) => {
+  return <button onClick={onUpdate}>Current: {value}</button>;
 };
+
+export default ClickCounter;
