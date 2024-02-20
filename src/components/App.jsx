@@ -1,33 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// import { useState } from "react";
+
+// const App = () => {
+//   const [first, setFirst] = useState(0);
+//   const [second, setSecond] = useState(0);
+
+//   useEffect(() => {
+//     console.log("First updated: ", first);
+//   }, [first]);
+
+//   useEffect(() => {
+//     console.log("Second updated: ", second);
+//   }, [second]);
+
+//   useEffect(() => {
+//     const sum = first + second;
+//     console.log("First or second updated: ", sum);
+//   }, [first, second]);
+
+//   return (
+//     <>
+//       <button onClick={() => setFirst(first + 1)}>First: {first}</button>
+//       <button onClick={() => setSecond(second + 1)}>Second: {second}</button>
+//     </>
+//   );
+// };
 
 const App = () => {
-  const [values, setValues] = useState({
-    x: 0,
-    y: 0,
+  const [clicks, setClicks] = useState(() => {
+    const savedClicks = window.localStorage.getItem("saved-clicks");
+    if (savedClicks !== null) {
+      return Number(savedClicks);
+    }
+    return 0;
   });
 
-  const updateX = () => {
-    setValues({
-      ...values,
-      x: values.x + 1,
-    });
-  };
-
-  const updateY = () => {
-    setValues({
-      ...values,
-      y: values.y + 1,
-    });
-  };
+  useEffect(() => {
+    window.localStorage.setItem("saved-clicks", clicks);
+  }, [clicks]);
 
   return (
     <div>
-      <p>
-        x: {values.x}, y: {values.y}
-      </p>
-
-      <button onClick={updateX}>Update x</button>
-      <button onClick={updateY}>Update y</button>
+      <button onClick={() => setClicks(clicks + 1)}>
+        You clicked {clicks} times
+      </button>
+      <button onClick={() => setClicks(0)}>Reset</button>
     </div>
   );
 };

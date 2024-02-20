@@ -1,5 +1,19 @@
-const ClickCounter = ({ value, onUpdate }) => {
-  return <button onClick={onUpdate}>Current: {value}</button>;
+import { useEffect } from "react";
+
+const Modal = () => {
+  useEffect(() => {
+    // Зберігаємо ідентифікатор інтервалу в змінну
+    const intervalId = setInterval(() => {
+      console.log(`Interval - ${Date.now()}`);
+    }, 2000);
+
+    return () => {
+      // Очищаємо інтервал за його ідентифікатором
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  return <div>Modal</div>;
 };
 
-export default ClickCounter;
+export default Modal;
