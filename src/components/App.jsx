@@ -1,52 +1,110 @@
-import { useState, useEffect } from "react";
+// import LoginForm from "./Product";
+
+// const App = () => {
+//   const handleLogin = (userDate) => console.log(userDate);
+//   return <LoginForm onSubmit={handleLogin} />;
+// };
+
+// export default App;
+
+// import SearchBar from "./Product";
+
+// const App = () => {
+//   return <SearchBar />;
+// };
+
+// export default App;
+
+// import LangSwitcher from "./Product";
 // import { useState } from "react";
 
 // const App = () => {
-//   const [first, setFirst] = useState(0);
-//   const [second, setSecond] = useState(0);
-
-//   useEffect(() => {
-//     console.log("First updated: ", first);
-//   }, [first]);
-
-//   useEffect(() => {
-//     console.log("Second updated: ", second);
-//   }, [second]);
-
-//   useEffect(() => {
-//     const sum = first + second;
-//     console.log("First or second updated: ", sum);
-//   }, [first, second]);
-
+//   const [lang, setLang] = useState("uk");
 //   return (
 //     <>
-//       <button onClick={() => setFirst(first + 1)}>First: {first}</button>
-//       <button onClick={() => setSecond(second + 1)}>Second: {second}</button>
+//       <p>Selected language: {lang}</p>
+//       <LangSwitcher value={lang} onSelect={setLang} />
 //     </>
 //   );
 // };
 
+// export default App;
+
+// import { useState } from "react";
+// const App = () => {
+//   const [coffeeSize, setCoffeeSize] = useState("sm");
+//   const handleSizeChange = (evt) => {
+//     setCoffeeSize(evt.target.value);
+//   };
+//   return (
+//     <>
+//       <h1>Select coffee size</h1>
+//       <label>
+//         <input
+//           type="radio"
+//           name="coffeeSize"
+//           value="sm"
+//           checked={coffeeSize === "sm"}
+//           onChange={handleSizeChange}
+//         />
+//         Small
+//       </label>
+//       <label>
+//         <input
+//           type="radio"
+//           name="coffeeSize"
+//           value="md"
+//           checked={coffeeSize === "md"}
+//           onChange={handleSizeChange}
+//         />
+//         Meduim
+//       </label>
+//       <label>
+//         <input
+//           type="radio"
+//           name="coffeeSize"
+//           value="lg"
+//           checked={coffeeSize === "lg"}
+//           onChange={handleSizeChange}
+//         />
+//         Large
+//       </label>
+//       <p>What size coffee do you need? {coffeeSize}</p>
+//     </>
+//   );
+// };
+
+// export default App;
+
+// const App = () => {
+//   const [hasAccepted, setHasAccepted] = useState(false);
+
+//   const handleChange = (evt) => {
+//     setHasAccepted(evt.target.checked);
+//   };
+
+//   return (
+//     <div>
+//       <label>
+//         <input
+//           type="checkbox"
+//           name="terms"
+//           checked={hasAccepted}
+//           onChange={handleChange}
+//         />
+//         I accept terms and conditions
+//       </label>
+//       <button type="button" disabled={!hasAccepted}>
+//         Proceed
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
+import LoginForm from "./Product";
 const App = () => {
-  const [clicks, setClicks] = useState(() => {
-    const savedClicks = window.localStorage.getItem("saved-clicks");
-    if (savedClicks !== null) {
-      return Number(savedClicks);
-    }
-    return 0;
-  });
-
-  useEffect(() => {
-    window.localStorage.setItem("saved-clicks", clicks);
-  }, [clicks]);
-
-  return (
-    <div>
-      <button onClick={() => setClicks(clicks + 1)}>
-        You clicked {clicks} times
-      </button>
-      <button onClick={() => setClicks(0)}>Reset</button>
-    </div>
-  );
+  return <LoginForm />;
 };
 
 export default App;
