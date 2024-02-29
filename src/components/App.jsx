@@ -103,40 +103,115 @@
 
 // export default App;
 
-import { useState } from "react";
-import ArticleList from "./ArticleList";
-import { fetchArticlesWithTopic } from "../articles-api";
-import SearchForm from "./SearchForm";
+// LESSON 4
 
-const App = () => {
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+// import { useState } from "react";
+// import ArticleList from "./ArticleList";
+// import { fetchArticlesWithTopic } from "../articles-api";
+// import SearchForm from "./SearchForm";
 
-  const handleSearch = async (topic) => {
-    try {
-      setArticles([]); // для очищення попереднього стану articles, перед новим запитом
-      setLoading(true);
-      setError(false); // щоб скинути попередню помилку перед наступним запитом (якщо вона була)
-      const data = await fetchArticlesWithTopic(topic);
-      setArticles(data);
-    } catch (error) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
+// const App = () => {
+//   const [articles, setArticles] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(false);
 
-  return (
-    <div>
-      <SearchForm onSearch={handleSearch} />
-      {loading && <p>Loading data, please wait...</p>}
-      {error && (
-        <p>Whoops, something went wrong! Please try reloading this page!</p>
-      )}
-      {articles.length > 0 && <ArticleList items={articles} />}
-    </div>
-  );
-};
+//   const handleSearch = async (topic) => {
+//     try {
+//       setArticles([]); // для очищення попереднього стану articles, перед новим запитом
+//       setLoading(true);
+//       setError(false); // щоб скинути попередню помилку перед наступним запитом (якщо вона була)
+//       const data = await fetchArticlesWithTopic(topic);
+//       setArticles(data);
+//     } catch (error) {
+//       setError(true);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
 
-export default App;
+//   return (
+//     <div>
+//       <SearchForm onSearch={handleSearch} />
+//       {loading && <p>Loading data, please wait...</p>}
+//       {error && (
+//         <p>Whoops, something went wrong! Please try reloading this page!</p>
+//       )}
+//       {articles.length > 0 && <ArticleList items={articles} />}
+//     </div>
+//   );
+// };
+
+// export default App;
+// import { useMemo, useState } from "react";
+// const App = () => {
+//   const [planets, setPlanets] = useState(["Earth", "Mars", "Jupiter", "Venus"]);
+//   const [query, setQuery] = useState("");
+//   const [clicks, setClicks] = useState(0);
+
+//   const filteredPlanets = useMemo(
+//     () => planets.filter((planet) => planet.includes(query)),
+//     [planets, query]
+//   );
+//   return (
+//     <>
+//       <button onClick={() => setClicks(clicks + 1)}>
+//         Number of clicks: {clicks}
+//       </button>
+//       <ul>
+//         {filteredPlanets.map((planet) => (
+//           <li key={planet}>{planet}</li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// };
+
+// export default App;
+
+// import { useEffect, useRef, useState } from "react";
+
+// const App = () => {
+//   const [value, setValue] = useState(0);
+//   const btnRef = useRef();
+
+//   console.log("App: ", btnRef.current);
+
+//   useEffect(() => {
+//     console.log("useEffect: ", btnRef.current);
+//   });
+
+//   const handleClick = () => {
+//     console.log("handleClick: ", btnRef.current);
+//   };
+
+//   return (
+//     <>
+//       <button onClick={() => setValue(value + 1)}>
+//         Update value to trigger re-render
+//       </button>
+//       <button ref={btnRef} onClick={handleClick}>
+//         Button with ref
+//       </button>
+//     </>
+//   );
+// };
+// export default App;
+
+// import Player from "./ArticleList";
+// const App = () => {
+//   return <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" />;
+// };
+
+// export default App;
+
+// import CustomButton from "./ArticleList";
+// import { useEffect, useRef, useState } from "react";
+// const App = () => {
+//   const btnRef = useRef();
+
+//   useEffect(() => btnRef.current.focus(), []);
+
+//   return <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton>;
+// };
+
+// export default App;
