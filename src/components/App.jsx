@@ -215,3 +215,34 @@
 // };
 
 // export default App;
+
+// LESSON 5
+
+// import { Routes, Route, NavLink } from "react-router-dom";
+// import About from "./ArticleList";
+
+// export const App = () => {
+//   return (
+//     <div>
+//       <nav>
+//         <NavLink to="/">Home </NavLink>
+//         <NavLink to="/about">About</NavLink>
+//         <NavLink to="/products">Products</NavLink>
+//       </nav>
+//       <Routes>
+//         <Route path="/" element={<button>Home</button>} />
+//         <Route path="/about" element={<About />}>
+//           <Route path="mission" element={<p>mission</p>} />
+//           <Route path="team" element={<p>Team</p>} />
+//           <Route path="reviews" element={<p>Reviews</p>} />
+//         </Route>
+
+//         <Route path="/products" element={<button>Product</button>} />
+
+//         <Route path="*" element={<button>Not Found</button>} />
+//       </Routes>
+//     </div>
+//   );
+// };
+
+// export default App;
