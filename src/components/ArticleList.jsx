@@ -300,3 +300,5 @@
 // };
 
 // export default About;
+
+// 6 LESSON
