@@ -1,4 +1,5 @@
-// import LoginForm from "./Product";
+// const ProductsList = ({ productsList }) => {
+//     import LoginForm from "./Product";
 
 // const App = () => {
 //   const handleLogin = (userDate) => console.log(userDate);
@@ -6,14 +7,14 @@
 // };
 
 // export default App;
+import ProductsList from "./ProductsList.jsx";
+import dbProducts from "../dbProducts.js";
 
-// import SearchBar from "./Product";
+const App = () => {
+  return <ProductsList productsList={dbProducts} />;
+};
 
-// const App = () => {
-//   return <SearchBar />;
-// };
-
-// export default App;
+export default App;
 
 // import LangSwitcher from "./Product";
 // import { useState } from "react";
